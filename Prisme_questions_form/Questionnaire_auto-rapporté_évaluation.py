@@ -9,7 +9,7 @@ from questions import FormPage
 from questions import TextQuestion
 from questions import ExpressionBlock
 from questions import BooleanQuestion
-from questions import FormPanel
+from questions import HtmlBlock
 from questions import RadioGroupQuestion
 from questions import MatrixQuestion
 
@@ -27,9 +27,13 @@ class PageOne(Form):
                         required="False")
 
 class PageTwo(Form):
-    intro = ExpressionBlock(title="Introduction:",expression= "",
-                            description="Bonjour. Ce questionnaire vous demande des questions à propos des difficultés engendrées par votre état de santé. Par condition de santé, cela inclut les maladies, les troubles de santé mentale, les problèmes émotionnels, les blessures, les problèmes reliés à l’alcool et aux drogues et les autres problèmes de santé qui peuvent être de courte ou de longue durée (ex. problèmes chroniques).\n Pensez à la dernière semaine et répondez aux questions selon à quel point cela était difficile pour vous de faire les activités suivantes. Pour chaque question, encerclez une seule réponse.")
-    
+    intro = HtmlBlock (title="test html",
+                        html = '''<div><font size="+1">
+<h4 style="text-align: justify;">Ce questionnaire vous demande des questions &agrave; propos des <strong>difficult&eacute;s</strong> <strong>engendr&eacute;es</strong> <strong>par votre</strong> <strong>&eacute;tat de sant&eacute;</strong>.</h4>
+<h4 style="text-align: justify;">Par condition de sant&eacute;, cela inclut les maladies, les troubles de sant&eacute; mentale, les probl&egrave;mes &eacute;motionnels, les blessures, les probl&egrave;mes reli&eacute;s &agrave; l&rsquo;alcool et aux drogues et les autres probl&egrave;mes de sant&eacute; qui peuvent &ecirc;tre de courte ou de longue dur&eacute;e (ex. probl&egrave;mes chroniques).</h4>
+<h4 style="text-align: justify;">Pensez &agrave; la <strong>derni&egrave;re semaine</strong> et r&eacute;pondez aux questions selon &agrave; quel point cela &eacute;tait difficile pour vous de faire les activit&eacute;s suivantes. Pour chaque question, cochez <strong>une seule r&eacute;ponse</strong>.</h4>
+</font></div> ''')
+class PageThree(Form): 
     D1 = MatrixQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de…",
                                     columns=[
                 {
@@ -73,7 +77,7 @@ class PageTwo(Form):
                                     all_rows_required = False)
     
 
-class PageThree(Form):
+class PageFour(Form):
     D2 = MatrixQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de…",
                                     columns=[
                 {
@@ -113,7 +117,7 @@ class PageThree(Form):
             ],
                                     all_rows_required = False)
 
-class PageFour(Form):
+class PageFive(Form):
     D3 = MatrixQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de…",
                                     columns=[
                 {
@@ -151,7 +155,7 @@ class PageFour(Form):
                                     all_rows_required = False)
 
 
-class PageFive(Form):
+class PageSix(Form):
     D4 = MatrixQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de…",
                                     columns=[
                 {
@@ -191,43 +195,43 @@ class PageFive(Form):
             ],
                                     all_rows_required = False)
 
-class PageSix(Form):
+class PageSeven(Form):
         D5_1 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de s'occuper de vos responsabilités ménagères (tâches ménagères, familles)",
-                                  choices=["Aucunement difficile", "Légèrement difficile","Modérément difficile","Sévèrement difficile","Extrêmement difficile ou je ne pouvais pas le faire"],
+                                  choices=["1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
                                   required = False)
         
         D5_2 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de bien faire vos tâches ménagères les plus importantes ?",
-                                  choices=["Aucunement difficile", "Légèrement difficile","Modérément difficile","Sévèrement difficile","Extrêmement difficile ou je ne pouvais pas le faire"],
+                                  choices=["1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
                                   required = False)
         
         D5_3 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de faire toutes les activités ménagères que vous aviez besoin de faire ?",
-                                  choices=["Aucunement difficile", "Légèrement difficile","Modérément difficile","Sévèrement difficile","Extrêmement difficile ou je ne pouvais pas le faire"],
+                                  choices=["1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
                                   required = False)
         
         D5_4 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de faire vos activités ménagères aussi rapidement que nécessaire ?",
-                                  choices=["Aucunement difficile", "Légèrement difficile","Modérément difficile","Sévèrement difficile","Extrêmement difficile ou je ne pouvais pas le faire"],
+                                  choices=["1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
                                   required = False)
         
         D5_01 = TextQuestion(title="Dans les 7 derniers jours, combien de jours cela vous est-il arrivé de réduire ou de ne pas faire du tout de tâches ménagères à cause de votre condition de santé ?",
                              required="False",
                              input_type="number",
-                             visible_if="{D5_2} = 'Légèrement difficile' or {D5_2} = 'Modérément difficile' or {D5_2} = 'Sévèrement difficile' or {D5_2} = 'Extrêmement difficile ou je ne pouvais pas le faire' or {D5_3} = 'Légèrement difficile' or {D5_3} = 'Modérément difficile' or {D5_3} = 'Sévèrement difficile' or {D5_3} = 'Extrêmement difficile ou je ne pouvais pas le faire' or {D5_4} = 'Légèrement difficile' or {D5_4} = 'Modérément difficile' or {D5_4} = 'Sévèrement difficile' or {D5_4} = 'Extrêmement difficile ou je ne pouvais pas le faire'")
+                             visible_if="{D5_2} = '2' or {D5_2} = '3' or {D5_2} = '4' or {D5_2} = '5' or {D5_3} = '2' or {D5_3} = '3' or {D5_3} = '4' or {D5_3} = '5' or {D5_4} = '2' or {D5_4} = '3' or {D5_4} = '4' or {D5_4} = '5'")
         
-class PageSeven(Form):
+class PageEight(Form):
         D5_5 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de s'occuper de faire votre journée de travail/d’école",
-                                  choices=["Aucunement difficile", "Légèrement difficile","Modérément difficile","Sévèrement difficile","Extrêmement difficile ou je ne pouvais pas le faire"],
+                                  choices=["1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
                                   required = False)
         
         D5_6 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de bien faire vos tâches ménagères les plus importantes ?",
-                                  choices=["Aucunement difficile", "Légèrement difficile","Modérément difficile","Sévèrement difficile","Extrêmement difficile ou je ne pouvais pas le faire"],
+                                  choices=["1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
                                   required = False)
         
         D5_7 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de faire toutes les activités ménagères que vous aviez besoin de faire ?",
-                                  choices=["Aucunement difficile", "Légèrement difficile","Modérément difficile","Sévèrement difficile","Extrêmement difficile ou je ne pouvais pas le faire"],
+                                  choices=["1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
                                   required = False)
         
         D5_8 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de faire vos activités ménagères aussi rapidement que nécessaire ?",
-                                  choices=["Aucunement difficile", "Légèrement difficile","Modérément difficile","Sévèrement difficile","Extrêmement difficile ou je ne pouvais pas le faire"],
+                                  choices=["1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
                                   required = False)   
 
 
@@ -236,21 +240,48 @@ class PageSeven(Form):
         
         D5_10 = BooleanQuestion(title="Gagnez-vous moins d'un problème de santé ?",
                                required = False)
+        
         D5_02 = TextQuestion(title="Dans les 7 derniers jours, combien de jours cela vous est-il arrivé de réduire ou de ne pas faire du tout de tâches ménagères à cause de votre condition de santé ?",
                              required="False",
                              input_type="number",
-                             visible_if="{D5_5} = 'Légèrement difficile' or {D5_5} = 'Modérément difficile' or {D5_5} = 'Sévèrement difficile' or {D5_5} = 'Extrêmement difficile ou je ne pouvais pas le faire' or {D5_3} = 'Légèrement difficile' or {D5_3} = 'Modérément difficile' or {D5_3} = 'Sévèrement difficile' or {D5_3} = 'Extrêmement difficile ou je ne pouvais pas le faire' or {D5_4} = 'Légèrement difficile' or {D5_4} = 'Modérément difficile' or {D5_4} = 'Sévèrement difficile' or {D5_4} = 'Extrêmement difficile ou je ne pouvais pas le faire'")
+                             visible_if="{D5_5} = '2' or {D5_5} = '3' or {D5_5} = '4' or {D5_5} = '5' or {D5_6} = '2' or {D5_6} = '3' or {D5_6} = '4' or {D5_6} = '5' or {D5_7} = '2' or {D5_7} = '3' or {D5_7} = '4' or {D5_7} = '5' or {D5_8} = '2' or {D5_8} = '3' or {D5_8} = '4' or {D5_8} = '5' ")
         
+class PageNine(Form):
+        D6_1_4 = MatrixQuestion(title="Dans la dernière semaine, …",
+                                    columns=[ "1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
+                                    rows=[ "D6_1| À quel point est-ce problématique pour vous de vous joindre à des activités communautaires (ex. festivités, activités religieuses, etc.), de la même manière que les autres le peuvent ?","D6_2|À quel point avez-vous eu des problèmes à cause de barrières ou d’obstacles autour de vous ? ","D6_3|À quel point cela était problématique pour vous de vivre avec dignité à cause des attitudes et des actions des autres ?","D6_4|Combien de temps avez-vous passé sur votre condition de santé ou à gérer les conséquences engendrées par votre condition de santé ?"],
+                                    all_rows_required = False)
+
+class PageTen(Form):
+        D6_5_8 = MatrixQuestion(title="Dans la dernière semaine, …",
+                                    columns=[ "1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
+                                    rows=[ "D6_5|À quel point avez-vous été émotionnellement affecté par vos conditions de santé ?","D6_6|À quel point votre santé a affecté vos ressources financières ou celles de votre famille ?","D6_7|À quel point vos problèmes de santé ont été problématiques pour votre famille ?","D6_8| À quel point cela a-t-il été problématique de faire des choses par vous-même pour vous relaxer ou pour le plaisir ?"],
+                                    all_rows_required = False)
+
+class PageEleven(Form):
+    H1 = TextQuestion(title="De manière générale, dans les 7 derniers jours, combien y a-t-il eu de jours où ces difficultés étaient présentes ?",
+                      input_type="number",
+                      required = False)
+    H2 = TextQuestion(title="Dans les 7 derniers jours, combien y a-t-il eu de jours où vous étiez totalement incapable de faire vos activités habituelles ou votre travail à cause d’une condition de santé ?",
+                      input_type="number",
+                      required = False)
+    H3 = TextQuestion(title="Dans les 7 derniers jours, sans compter les jours où vous en étiez totalement incapable, combien y a-t-il eu de jours où vous avez dû couper ou réduire vos activités habituelles ou votre travail à cause d’une condition de santé ?",
+                      input_type="number",
+                      required = False)
 
 
 class Profile(Form):
-    page_one = FormPage(PageOne, title="Indentification Participant")
-    page_two = FormPage(PageTwo, title="Questionnaire auto-rapporté")
-    page_three = FormPage(PageThree, title="Échelle d'Hamilton")
-    page_four = FormPage(PageFour, title="Échelle d'Hamilton")
-    page_five = FormPage(PageFive, title="Échelle d'Hamilton")
-    page_six = FormPage(PageSix, title="Échelle d'Hamilton")
-    page_seven = FormPage(PageSeven, title="Échelle d'Hamilton")
+    page_one = FormPage(PageOne, title="")
+    page_two = FormPage(PageTwo, title="")
+    page_three = FormPage(PageThree, title="")
+    page_four = FormPage(PageFour, title="")
+    page_five = FormPage(PageFive, title="")
+    page_six = FormPage(PageSix, title="")
+    page_seven = FormPage(PageSeven, title="")
+    page_eight = FormPage(PageEight, title="")
+    page_nine = FormPage(PageNine, title="")
+    page_ten = FormPage(PageTen, title="")
+    page_eleven = FormPage(PageEleven, title="")
 
 
 def open_browser():
