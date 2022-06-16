@@ -7,17 +7,21 @@ from flask import request
 from questions import Form
 from questions import FormPage
 from questions import TextQuestion
-from questions import ExpressionBlock
+from questions import DropdownQuestion
 from questions import BooleanQuestion
 from questions import HtmlBlock
 from questions import RadioGroupQuestion
 from questions import MatrixQuestion
+from questions import CommentQuestion
 
 
 import webbrowser
 from threading import Timer
 
 class PageOne(Form):
+    intro = HtmlBlock (title="test html",
+                        html = '''<div><font size="5">
+<h4 style="text-align: justify;">Questionnaire auto-rapporté - Évaluation initiale </h4> </font></div> ''')
     projet = TextQuestion(title="Projet:")
     participant = TextQuestion(title="Numero du participant:",
                                input_type="number",
@@ -269,19 +273,93 @@ class PageEleven(Form):
                       input_type="number",
                       required = False)
 
+class PageTwelve(Form):
+    intro = HtmlBlock (title="Année Études",
+                        html = '''<img src='/static/Annees_etudes_quebec.png' alt='Annees_etudes_quebec' width='100%' height='100%'/>''')
+    WHOQOL_apropo1 = TextQuestion(title="Quel est votre niveau d'éducation ? (Nombre d'années totales d'études)",
+                                input_type="number",
+                                required = False)
+    
+    WHOQOL_apropo2 = DropdownQuestion(title="Quel est votre état civil?",
+                                choices = ["1|Célibataire", "2|Séparé","3|Marié","4|Divorcé","5|Veuf"],
+                                required = False)
+    WHOQOL_apropo3 = BooleanQuestion(title="Êtes-vous présentement malade ?",
+                               required = False)
+    WHOQOL_apropo4 = CommentQuestion(title="S'il y avait quelque chose qui n'allait pas avec votre santé, vous croyez que cela serait quoi ?",
+                               required = False)
+
+
+class PageThirteen(Form):
+    intro = HtmlBlock (title="test html",
+                        html = '''<div><font size="+1">
+<h4 style="text-align: justify;">Ce questionnaire vous demande ce que vous pensez de votre qualité de vie, de votre santé ou des autres sphères de votre vie.</h4>
+<h4 style="text-align: justify;">S'il vous plaît, répondre à toutes les questions. Si vous n'êtes pas certain de votre réponse, choisissez celle qui apparaît le plus appropriée. Cela peut souvent être la première réponse à laquelle vous avez pensé. </h4>
+<h4 style="text-align: justify;">Gardez à l'esprit vos standards, espoirs, plaisirs et préoccupations. Nous vous demandons de répondre en fonction de ce que vous pensiez de votre vie lors de la dernière semaine.</h4>
+</font></div> ''')
+
+
+class PageFourteen(Form):
+        WHOQOL_1 = RadioGroupQuestion(title="Comment évalueriez-vous votre qualité de vie ?",
+                                  choices=["1|Très pauvre", "2|Pauvre","3|Ni pauvre ni bonne","4|Bonne","5|Très bonne"],
+                                  required = False)
+        
+        WHOQOL_2 = RadioGroupQuestion(title="À quel point êtes-vous satisfait de votre santé ?",
+                                  choices=["1|Très insatisfait", "2|Insatisfait","3|Ni satisfait ni insatisfait","4|Satisfait","5|Très satisfait"],
+                                  required = False)
+        
+class PageFifteen(Form): 
+    WHOQOL_3_6 = MatrixQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de…",
+                                    columns=[
+                {
+                    "value": 1,
+                    "text": "Pas du tout"
+                }, {
+                    "value": 2,
+                    "text": "Un peu"
+                }, {
+                    "value": 3,
+                    "text": "Modérément "
+                }, {
+                    "value": 4,
+                    "text": "Beaucoup"
+                }, {
+                    "value": 5,
+                    "text": "Extrêmement"
+                }
+            ],
+                                    rows=[
+                {
+                    "value": "WHOQOL_3 ",
+                    "text": "À quel point pensez-vous que la douleur physique vous empêche de faire ce que vous avez besoin de faire ?"
+                }, {
+                    "value": "WHOQOL_4",
+                    "text": "Combien de traitements médicaux avez-vous besoin pour fonctionner dans votre vie de tous les jours ?"
+                }, {
+                    "value": "WHOQOL_5",
+                    "text": "À quel point vous trouvez la vie agréable ?"
+                }, {
+                    "value": "WHOQOL_6",
+                    "text": "À quel  point sentez-vous que votre vie a un sens ?"
+                }
+            ],
+                                    all_rows_required = False)
 
 class Profile(Form):
-    page_one = FormPage(PageOne, title="")
-    page_two = FormPage(PageTwo, title="")
-    page_three = FormPage(PageThree, title="")
-    page_four = FormPage(PageFour, title="")
-    page_five = FormPage(PageFive, title="")
-    page_six = FormPage(PageSix, title="")
-    page_seven = FormPage(PageSeven, title="")
-    page_eight = FormPage(PageEight, title="")
-    page_nine = FormPage(PageNine, title="")
-    page_ten = FormPage(PageTen, title="")
-    page_eleven = FormPage(PageEleven, title="")
+    #page_one = FormPage(PageOne, title="")
+    page_two = FormPage(PageTwo, title="WHODAS 2.0 - 36 items - auto-rapporté")
+    #page_three = FormPage(PageThree, title="")
+    #page_four = FormPage(PageFour, title="")
+    #page_five = FormPage(PageFive, title="")
+    #page_six = FormPage(PageSix, title="")
+    #page_seven = FormPage(PageSeven, title="")
+    #page_eight = FormPage(PageEight, title="")
+    #page_nine = FormPage(PageNine, title="")
+    #page_ten = FormPage(PageTen, title="")
+    #page_eleven = FormPage(PageEleven, title="")
+    #page_twelve = FormPage(PageTwelve, title="")
+    page_thirteen = FormPage(PageThirteen, title="WHOQOL-BREF - 26 items - auto-rapporté")
+    page_fourteen = FormPage(PageFourteen, title="")
+    page_fifteen = FormPage(PageFifteen, title="")
 
 
 def open_browser():
