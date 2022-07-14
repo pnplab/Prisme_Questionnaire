@@ -16,6 +16,9 @@ from questions import HtmlBlock
 from questions import RadioGroupQuestion
 from questions import MatrixQuestion
 from questions import CommentQuestion
+from questions import DropdownQuestion
+from questions import MatrixDynamicQuestion
+from questions import FormPanel
 
 
 import webbrowser
@@ -32,9 +35,10 @@ class Page1(Form):
     date = TextQuestion(title="Date",
                         input_type="date",
                         required="False")
-
+#############################################################################################################################
+########################## WHODAS 2.0 - 36 items - auto-rapporté ############################################################
 class Page2(Form):
-    intro = HtmlBlock (title="test html",
+    intro = HtmlBlock (title="WHODAS 2.0",
                         html = '''<div><font size="+1">
 <h4 style="text-align: justify;">Ce questionnaire vous demande des questions &agrave; propos des <strong>difficult&eacute;s</strong> <strong>engendr&eacute;es</strong> <strong>par votre</strong> <strong>&eacute;tat de sant&eacute;</strong>.</h4>
 <h4 style="text-align: justify;">Par condition de sant&eacute;, cela inclut les maladies, les troubles de sant&eacute; mentale, les probl&egrave;mes &eacute;motionnels, les blessures, les probl&egrave;mes reli&eacute;s &agrave; l&rsquo;alcool et aux drogues et les autres probl&egrave;mes de sant&eacute; qui peuvent &ecirc;tre de courte ou de longue dur&eacute;e (ex. probl&egrave;mes chroniques).</h4>
@@ -291,7 +295,8 @@ class Page12(Form):
     WHOQOL_apropo4 = CommentQuestion(title="S'il y avait quelque chose qui n'allait pas avec votre santé, vous croyez que cela serait quoi ?",
                                required = False)
 
-
+#####################################################################################################################################################################################
+############################# 3. WHOQOL-BREF - 26 items - auto-rapporté ##############################################################################################################
 class Page13(Form):
     intro = HtmlBlock (title="test html",
                         html = '''<div><font size="+1">
@@ -442,7 +447,7 @@ class Page18(Form):
                     "text": "Satisfait"
                 }, {
                     "value": 5,
-                    "text": "Satisfait"
+                    "text": "Très satisfait"
                 }
             ],
                                     rows=[
@@ -479,7 +484,7 @@ class Page19(Form):
                     "text": "Satisfait"
                 }, {
                     "value": 5,
-                    "text": "Satisfait"
+                    "text": " Très satisfait"
                 }
             ],
                                     rows=[
@@ -517,7 +522,7 @@ class Page20(Form):
                     "text": "Satisfait"
                 }, {
                     "value": 5,
-                    "text": "Satisfait"
+                    "text": "Très satisfait"
                 }
             ],
                                     rows=[
@@ -531,10 +536,11 @@ class Page20(Form):
             ],
                                     all_rows_required = False)
     
-    WHOQOL_25 = RadioGroupQuestion(title="À quelle fréquence ressentez-vous des sentiments négatifs, comme une mauvaise humeur, le désespoir, l'anxiété, la dépression ? ",
+    WHOQOL_26 = RadioGroupQuestion(title="À quelle fréquence ressentez-vous des sentiments négatifs, comme une mauvaise humeur, le désespoir, l'anxiété, la dépression ? ",
                                   choices=["1|Jamais", "2|Rarement","3|Assez souvent","4|Très souvent","5|Toujours"],
                                   required = False)
-    
+###########################################################################################################################################################################################################
+############################################### DASS-21 #############################################################################################################################################################    
 class Page21(Form):
     intro = HtmlBlock (title="DASS-21",
                         html = '''<div><font size="+1">
@@ -672,7 +678,8 @@ class Page24(Form):
                 }
             ],
                                     all_rows_required = False)
-    
+########################################################################################################################################################################################
+################################### CAPE-15 #############################################################################################################################################    
 class Page25(Form):
     intro = HtmlBlock (title="CAPE-15",
                         html = '''<div><font size="+1">
@@ -755,8 +762,95 @@ class Page27(Form):
                 }
             ],
                                     all_rows_required = False)   
-    
+##################################################################################################################################################################
+######################################## Altman Scale #############################################################################################################    
 
+class Page28(Form):
+    intro = HtmlBlock (title="Altman",
+                        html = '''<div><font size="+1">
+<h4 style="text-align: justify;">Il y a 5 groupes d'énoncés sur ce questionnaire: lisez attentivement chaque groupe d'énoncés.</h4>
+<h4 style="text-align: justify;">Choisissez, dans chaque groupe, l'affirmation qui décrit le mieux la façon dont vous vous sentez la semaine passée.</h4>
+<h4 style="text-align: justify;"> Remarque: le mot « occasionnellement » signifie une ou deux fois; « Souvent » signifie plusieurs fois et « fréquemment » signifie la plupart du temps.</h4>
+</font></div> ''')
+
+    Altman_group1 = DropdownQuestion(title="Groupes d'énoncés 1 ",
+                                     choices=["0|Je ne me sens pas plus heureux ni de meilleure humeur que d'habitude",
+                                              "1|Je me sens occasionnellement plus heureux ou de meilleure humeur que d'habitude",
+                                              "2|Je me sens souvent plus heureux ou de meilleure humeur que d'habitude",
+                                              "3|Je me sens fréquemment plus heureux ou de meilleure humeur que d'habitude",
+                                              "4|Je me sens tout le temps plus heureux ou de meilleure humeur que d'habitude"],
+                                     required = False)
+    
+    Altman_group2 = DropdownQuestion(title="Groupes d'énoncés 2",
+                                     choices=["0|Je ne me sens pas plus confiant que d'habitude.",
+                                              "1|Je me sens occasionnellement plus confiant que d'habitude",
+                                              "2|J'ai souvent plus confiance en moi que d'habitude",
+                                              "3|Je me sens fréquemment plus confiant que d'habitude",
+                                              "4|Je me sens extrêmement confiant tout le temps"],
+                                     required = False)
+    
+    Altman_group3 = DropdownQuestion(title="Groupes d'énoncés 3",
+                                     choices=["0|Je n'ai pas besoin de moins de sommeil que d'habitude",
+                                              "1|J'ai occasionnellement besoin de moins de sommeil que d'habitude",
+                                              "2|J'ai souvent besoin de moins de sommeil que d'habitude",
+                                              "3|J'ai fréquemment besoin de moins de sommeil que d'habitude",
+                                              "4|Je peux rester éveillé toute la journée et toute la nuit et je ne me sens toujours pas fatigué"],
+                                     required = False)
+    
+    Altman_group4 = DropdownQuestion(title="Groupes d'énoncés 4",
+                                     choices=["0|Je ne parle pas plus que d'habitude",
+                                              "1|Je parle occasionnellement plus que d'habitude",
+                                              "2|Je parle souvent plus que d'habitude",
+                                              "3|Je parle fréquemment plus que d'habitude",
+                                              "4|Je parle constamment et je ne peux pas être interrompu"],
+                                     required = False)
+    
+    Altman_group5 = DropdownQuestion(title="Groupes d'énoncés 5",
+                                     choices=["0|Je n'ai pas été plus actif (que ce soit socialement, sexuellement, au travail, à la maison ou à l'école) que d'habitude",
+                                              "1|J'ai occasionnellement été plus actif que d'habitude",
+                                              "2|J'ai souvent été plus actif que d'habitude",
+                                              "3|J'ai fréquemment été plus actif que d'habitude",
+                                              "4|Je suis constamment actif ou tout le temps en déplacement"],
+                                     required = False)
+################################################################################################################################################################################################
+######################################### Consommation #########################################################################################################################################
+class AutresConsommation(Form):
+    autres_conso = TextQuestion(title='Rajoutez des lignes au besoin', is_required=False)
+    
+class Page29(Form):
+    intro = HtmlBlock (title="Consomation",
+                        html = '''<div><font size="+1">
+<h4 style="text-align:justify;"> Complétez le formulaire en vous basant sur votre consommation des 7 derniers jours.</h4>
+</font></div> ''')
+    date_debut_consomation = TextQuestion(title="Date du début de la période de 7 jours : ",
+                             input_type="date",
+                             required="False")
+    conso_1 = BooleanQuestion(title="Lors des 7 derniers jours, avez-vous consommé de l'alcool ou des drogues ?")
+    conso_2 = TextQuestion(title="Combien de fois avez-vous consommé de l'alcool ?",
+                                                 input_type="number",
+                                                 visible_if="{conso_1} = True",
+                                                 required="False")
+    conso_3_12 = MatrixQuestion(title="Lors des 7 derniers jours, avez-vous consommé …",
+                                    columns=[ "0|Non", "1|Oui"],
+                                    rows=[ "conso_3| Cannabinoïdes / Marijuana ",
+                                          "conso_4| Cocaïne",
+                                          "conso_5| Crack",
+                                          "conso_6| Stimulants de type amphétamine",
+                                          "conso_7| Analgésiques opioïdes, y compris la méthadone",
+                                          "conso_8| Héroïne",
+                                          "conso_9| Hallucinogènes, y compris MDMA / ecstasy",
+                                          "conso_10| Sédatifs et hypnotiques, à l'exclusion des benzodiazépines",
+                                          "conso_11| Benzodiazépines",
+                                          "conso_12| Inhalants"],
+                                    has_other = False)
+    conso_13_bool = BooleanQuestion(title="Lors des 7 derniers jours, avez-vous consommé d'autres drogues que celles montionnées si haut?",)
+    conso_13 = FormPanel(AutresConsommation,
+                         name="conso_13",
+                         title=" Specifiez en ecrivant le nom de la drogue.",
+                         visible_if="{conso_13_bool} = True",
+                         dynamic=True
+                         )
+    
 class Profile(Form):
     page_1 = FormPage(Page1, title="")
     page_2 = FormPage(Page2, title="WHODAS 2.0 - 36 items - auto-rapporté")
@@ -774,15 +868,19 @@ class Profile(Form):
     #page_14 = FormPage(Page14, title="")
     #page_15 = FormPage(Page15, title="")
     #page_16 = FormPage(Page16, title="")
-    page_17 = FormPage(Page17, title="")
-    page_18 = FormPage(Page18, title="")
-    page_19 = FormPage(Page19, title="")
-    page_20 = FormPage(Page20, title="")
+    #page_17 = FormPage(Page17, title="")
+    #page_18 = FormPage(Page18, title="")
+    #page_19 = FormPage(Page19, title="")
+    #page_20 = FormPage(Page20, title="")
     page_21 = FormPage(Page21, title="DASS-21")
-    page_22 = FormPage(Page22, title="")
-    page_23 = FormPage(Page23, title="")
-    page_24 = FormPage(Page24, title="")
+    #page_22 = FormPage(Page22, title="")
+    #page_23 = FormPage(Page23, title="")
+    #page_24 = FormPage(Page24, title="")
     page_25 = FormPage(Page25, title="CAPE-15")
+    #page_26 = FormPage(Page26, title="")
+    #page_27 = FormPage(Page27, title="")
+    page_28 = FormPage(Page28, title="Altman")
+    page_29 = FormPage(Page29, title="Suivie chronologique - Consommation")
     
 
 
