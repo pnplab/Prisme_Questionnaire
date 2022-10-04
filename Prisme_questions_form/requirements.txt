@@ -1,4 +1,0 @@
-Flask>=2.0.2
-questions>=0.7.0a4
-numpy>=1.22.4y
-pandas>=1.4.2
