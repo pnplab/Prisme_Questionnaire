@@ -1,0 +1,10 @@
+,0
+projet,Prisme
+participant,6321
+date,2022-10-20
+date_debut_consomation,2022-10-07
+conso_1,true
+conso_2,44
+conso_3_12,"{'conso_3': '0', 'conso_4': '1', 'conso_5': '0', 'conso_6': '1'}"
+conso_13_bool,false
+conso_13,[{}]

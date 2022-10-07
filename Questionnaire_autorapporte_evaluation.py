@@ -853,7 +853,7 @@ class Page29(Form):
     
 class Profile(Form):
     page_1 = FormPage(Page1, title="")
-    page_2 = FormPage(Page2, title="WHODAS 2.0 - 36 items - auto-rapporté")
+    #page_2 = FormPage(Page2, title="WHODAS 2.0 - 36 items - auto-rapporté")
     #page_3 = FormPage(Page3, title="")
     #page_4 = FormPage(Page4, title="")
     #page_5 = FormPage(Page5, title="")
@@ -895,7 +895,7 @@ app = Flask(__name__)
 @app.route("/", methods=("GET",))
 def form():
     form = Profile(title="Prisme", theme="modern",
-                   platform="jquery", navigate_to_url="/thanks",locale="fr",
+                   platform="jquery", navigate_to_url="/merci",locale="fr",
                    resource_url="/static/node_modules")
     return form.render_html()
 
@@ -915,7 +915,10 @@ def post():
     date = form_data.get('date')
     save_f_name = f'{project_name}_{subject_name}_{current_f_name}_{date}_{current_time}'
     print(save_f_name)
+    print(os.getcwd())
     df = pd.DataFrame.from_dict(form_data, orient="index")
+    if not os.path.exists('result/'):
+       os.makedirs('result/')
     df.to_csv(f'result/{save_f_name}.csv')
     return redirect("/merci")
 
@@ -924,6 +927,6 @@ def merci():
     return "Merci pour votre participation"
 
 if __name__ == "__main__":
-      app.debug = True
-      #Timer(2, open_browser).start();
+      app.debug = False
+      Timer(2, open_browser).start();
       app.run(port=5000)
