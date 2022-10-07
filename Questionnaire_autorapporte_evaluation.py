@@ -123,7 +123,7 @@ class Page4(Form):
                     "text": " Sortir de la maison ?"
                 }, {
                     "value": "D2_5",
-                    "text": " Marcher une longue distance (ex. un kilomètre ou l'équivalent)"
+                    "text": " Marcher une longue distance (ex. un kilomètre ou l'équivalent) ?"
                 }
             ],
                                     all_rows_required = False)
@@ -198,7 +198,7 @@ class Page6(Form):
                     "text": " S'entendre avec les gens qui sont proches de vous ?"
                 }, {
                     "value": "D4_4",
-                    "text": " Se faire des nouveaux ami ?"
+                    "text": " Se faire des nouveaux amis ?"
                 }, {
                     "value": "D4_5",
                     "text": " À quel point avez-vous eu des difficultés dans vos activités sexuelles ?"
@@ -229,19 +229,19 @@ class Page7(Form):
                              visible_if="{D5_2} = '2' or {D5_2} = '3' or {D5_2} = '4' or {D5_2} = '5' or {D5_3} = '2' or {D5_3} = '3' or {D5_3} = '4' or {D5_3} = '5' or {D5_4} = '2' or {D5_4} = '3' or {D5_4} = '4' or {D5_4} = '5'")
         
 class Page8(Form):
-        D5_5 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de s'occuper de faire votre journée de travail/d'école",
+        D5_5 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de faire votre journée de travail/d'école",
                                   choices=["1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
                                   required = False)
         
-        D5_6 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de bien faire vos tâches ménagères les plus importantes ?",
+        D5_6 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de bien faire vos tâches reliées au travail/à l'école ?",
                                   choices=["1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
                                   required = False)
         
-        D5_7 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de faire toutes les activités ménagères que vous aviez besoin de faire ?",
+        D5_7 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de faire tout le travail que vous aviez besoin de faire ?",
                                   choices=["1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
                                   required = False)
         
-        D5_8 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de faire vos activités ménagères aussi rapidement que nécessaire ?",
+        D5_8 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de faire le travail aussi rapidement que nécessaire ?",
                                   choices=["1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
                                   required = False)   
 
@@ -302,7 +302,7 @@ class Page13(Form):
                         html = '''<div><font size="+1">
 <h4 style="text-align: justify;">Ce questionnaire vous demande ce que vous pensez de votre qualité de vie, de votre santé ou des autres sphères de votre vie.</h4>
 <h4 style="text-align: justify;">S'il vous plaît, répondre à toutes les questions. Si vous n'êtes pas certain de votre réponse, choisissez celle qui apparaît le plus appropriée. Cela peut souvent être la première réponse à laquelle vous avez pensé. </h4>
-<h4 style="text-align: justify;">Gardez à l'esprit vos standards, espoirs, plaisirs et préoccupations. Nous vous demandons de répondre en fonction de ce que vous pensiez de votre vie lors de la dernière semaine.</h4>
+<h4 style="text-align: justify;">Gardez à l'esprit vos standards, espoirs, plaisirs et préoccupations. Nous vous demandons de répondre en fonction de ce que vous pensiez de votre vie lors de la dernière semaine. Lisez chaque question et cochez votre réponse. </h4>
 </font></div> ''')
 
 
@@ -569,25 +569,25 @@ class Page22(Form):
                                     rows=[
                 {
                     "value": "DASS_1 ",
-                    "text": "J'ai eu de la difficulté à me détendre"
+                    "text": "J'ai eu de la difficulté à me détendre."
                 }, {
                     "value": "DASS_2",
-                    "text": " J'ai été conscient(e) d'avoir la bouche sèche"
+                    "text": " J'ai été conscient(e) d'avoir la bouche sèche."
                 }, {
                     "value": "DASS_3",
-                    "text": " J'ai été conscient(e) d'avoir la bouche sèche"
+                    "text": " J'ai l'impression de ne pas pouvoir ressentir d'émotion positive."
                 }, {
                     "value": "DASS_4",
                     "text": "J'ai eu de la difficulté à respirer (par exemple, respirations excessivement rapides, essoufflement sans effort physique)."
                 }, {
                     "value": "DASS_5",
-                    "text": "J'ai eu de la difficulté à initier de nouvelles activités"
+                    "text": "J'ai eu de la difficulté à initier de nouvelles activités."
                 }, {
                     "value": "DASS_6",
-                    "text": "J'ai eu tendance à réagir de façon exagérée"
+                    "text": "J'ai eu tendance à réagir de façon exagérée."
                 }, {
                     "value": "DASS_7",
-                    "text": "J'ai eu des tremblements (par exemple, des mains)"
+                    "text": "J'ai eu des tremblements (par exemple, des mains)."
                 }
             ],
                                     all_rows_required = False)    
@@ -662,7 +662,7 @@ class Page24(Form):
                     "text": " J'ai été incapable de me sentir enthousiaste au sujet de quoi que ce soit."
                 }, {
                     "value": "DASS_17",
-                    "text": " J'ai eu le sentiment de ne pas valoir grand chose comme personne"
+                    "text": " J'ai eu le sentiment de ne pas valoir grand chose comme personne."
                 }, {
                     "value": "DASS_18",
                     "text": "J'ai eu l'impression d'être assez susceptible."
@@ -683,9 +683,8 @@ class Page24(Form):
 class Page25(Form):
     intro = HtmlBlock (title="CAPE-15",
                         html = '''<div><font size="+1">
-<h4 style="text-align: justify;">Veuillez lire chaque énoncé et indiquez lequel correspond le mieux à votre expérience au cours de la dernière semaine.</h4>
+<h4 style="text-align: justify;">Pour chaque item, indiquez à quelle fréquence vous vous êtes senti de cette manière dans la dernière semaine.</h4>
 <h4 style="text-align: justify;">Indiquez votre choix en cochant la case qui vous correspond.</h4>
-<h4 style="text-align: justify;"> Il n'y a pas de bonne ou de mauvaise réponse.</h4>
 </font></div> ''')
     
     
@@ -715,7 +714,7 @@ class Page26(Form):
                     "text": " Avez-vous senti que certaines personnes n'étaient pas ce qu'elles semblaient être?"
                 }, {
                     "value": "CAPE_3",
-                    "text": " Avez-vous senti que vous étiez persécuté d'une manière ou d'une autre ? "
+                    "text": " Avez-vous senti que vous étiez persécuté(e) d'une manière ou d'une autre ? "
                 }, {
                     "value": "CAPE_4",
                     "text": "Avez-vous senti qu'il y avait un complot contre vous ?"
@@ -749,23 +748,60 @@ class Page27(Form):
                     "text": " Avez-vous senti que les gens vous regardaient étrangement à cause de votre apparence?"
                 }, {
                     "value": "CAPE_7",
-                    "text": " Avez-vous senti que certaines personnes n'étaient pas ce qu'elles semblaient être?"
+                    "text": " Avez-vous ressenti que l'on tentait de vous voler/vous enlever vos pensées de votre tête?"
                 }, {
                     "value": "CAPE_8",
-                    "text": " Avez-vous senti que vous étiez persécuté d'une manière ou d'une autre ? "
+                    "text": " Vous êtes-vous senti comme si les pensées de votre tête n'étaient pas les vôtres ? "
                 }, {
                     "value": "CAPE_9",
-                    "text": "Avez-vous senti qu'il y avait un complot contre vous ?"
+                    "text": "Vos pensées ont-elles été si vives que vous craigniez que d'autres personnes ne les entendent ?"
                 }, {
                     "value": "CAPE_10",
-                    "text": " Vous êtes-vous senti comme si des appareils électriques tels que des ordinateurs pouvaient influencer votre façon de penser?"
+                    "text": " Avez-vous entendu vos pensées vous revenir en échos ?"
+                }
+            ],
+                                    all_rows_required = False)
+
+class Page28(Form): 
+    CAPE_11_15 = MatrixQuestion(title=" Indiquez à quelle fréquence vous vous êtes senti de cette manière dans la dernière semaine.",
+                                    columns=[
+                {
+                    "value": 1,
+                    "text": "Jamais"
+                }, {
+                    "value": 2,
+                    "text": "Parfois"
+                }, {
+                    "value": 3,
+                    "text": "Souvent"
+                }, {
+                    "value": 4,
+                    "text": "Presque toujours"
+                }
+            ],
+                                    rows=[
+                {
+                    "value": "CAPE_11 ",
+                    "text": " Avez-vous senti que vous étiez sous le contrôle d'une force ou d'un autre pouvoir autre que vous-même ?"
+                }, {
+                    "value": "CAPE_12",
+                    "text": " Avez-vous entendu des voix lorsque vous étiez seul(e) ?"
+                }, {
+                    "value": "CAPE_13",
+                    "text": " Avez-vous entendu des voix se parler entre elles lorsque vous étiez seul(e) ? "
+                }, {
+                    "value": "CAPE_14",
+                    "text": " Vous etes-vous senti comme si un double avait pris la place d'un membre de la famille, d'un ami ou d'une connaissance ?"
+                }, {
+                    "value": "CAPE_15",
+                    "text": " Avez-vous vu des objets, des personnes ou des animaux que les autres ne peuvent pas voir ?"
                 }
             ],
                                     all_rows_required = False)   
 ##################################################################################################################################################################
 ######################################## Altman Scale #############################################################################################################    
 
-class Page28(Form):
+class Page29(Form):
     intro = HtmlBlock (title="Altman",
                         html = '''<div><font size="+1">
 <h4 style="text-align: justify;">Il y a 5 groupes d'énoncés sur ce questionnaire: lisez attentivement chaque groupe d'énoncés.</h4>
@@ -817,7 +853,7 @@ class Page28(Form):
 class AutresConsommation(Form):
     autres_conso = TextQuestion(title='Rajoutez des lignes au besoin', is_required=False)
     
-class Page29(Form):
+class Page30(Form):
     intro = HtmlBlock (title="Consomation",
                         html = '''<div><font size="+1">
 <h4 style="text-align:justify;"> Complétez le formulaire en vous basant sur votre consommation des 7 derniers jours.</h4>
@@ -853,41 +889,42 @@ class Page29(Form):
     
 class Profile(Form):
     page_1 = FormPage(Page1, title="")
-    #page_2 = FormPage(Page2, title="WHODAS 2.0 - 36 items - auto-rapporté")
-    #page_3 = FormPage(Page3, title="")
-    #page_4 = FormPage(Page4, title="")
-    #page_5 = FormPage(Page5, title="")
-    #page_6 = FormPage(Page6, title="")
-    #page_7 = FormPage(Page7, title="")
-    #page_8 = FormPage(Page8, title="")
-    #page_9 = FormPage(Page9, title="")
-    #page_10 = FormPage(Page10, title="")
-    #page_11 = FormPage(Page11, title="")
-    #page_12 = FormPage(Page12, title="")
-    #page_13 = FormPage(Page13, title="WHOQOL-BREF - 26 items - auto-rapporté")
-    #page_14 = FormPage(Page14, title="")
-    #page_15 = FormPage(Page15, title="")
-    #page_16 = FormPage(Page16, title="")
-    #page_17 = FormPage(Page17, title="")
-    #page_18 = FormPage(Page18, title="")
-    #page_19 = FormPage(Page19, title="")
-    #page_20 = FormPage(Page20, title="")
-    #page_21 = FormPage(Page21, title="DASS-21")
-    #page_22 = FormPage(Page22, title="")
-    #page_23 = FormPage(Page23, title="")
-    #page_24 = FormPage(Page24, title="")
-    #page_25 = FormPage(Page25, title="CAPE-15")
-    ##page_26 = FormPage(Page26, title="")
-    #page_27 = FormPage(Page27, title="")
-    #page_28 = FormPage(Page28, title="Altman")
-    page_29 = FormPage(Page29, title="Suivie chronologique - Consommation")
+    page_2 = FormPage(Page2, title="WHODAS 2.0 - 36 items - auto-rapporté")
+    page_3 = FormPage(Page3, title="")
+    page_4 = FormPage(Page4, title="")
+    page_5 = FormPage(Page5, title="")
+    page_6 = FormPage(Page6, title="")
+    page_7 = FormPage(Page7, title="")
+    page_8 = FormPage(Page8, title="")
+    page_9 = FormPage(Page9, title="")
+    page_10 = FormPage(Page10, title="")
+    page_11 = FormPage(Page11, title="")
+    page_12 = FormPage(Page12, title="")
+    page_13 = FormPage(Page13, title="WHOQOL-BREF - 26 items - auto-rapporté")
+    page_14 = FormPage(Page14, title="")
+    page_15 = FormPage(Page15, title="")
+    page_16 = FormPage(Page16, title="")
+    page_17 = FormPage(Page17, title="")
+    age_18 = FormPage(Page18, title="")
+    page_19 = FormPage(Page19, title="")
+    page_20 = FormPage(Page20, title="")
+    page_21 = FormPage(Page21, title="DASS-21")
+    page_22 = FormPage(Page22, title="")
+    page_23 = FormPage(Page23, title="")
+    page_24 = FormPage(Page24, title="")
+    page_25 = FormPage(Page25, title="CAPE-15")
+    page_26 = FormPage(Page26, title="")
+    page_27 = FormPage(Page27, title="")
+    page_28 = FormPage(Page28, title="")
+    page_29 = FormPage(Page29, title="Altman")
+    page_30 = FormPage(Page30, title="Suivi chronologique - Consommation")
     
 
 
 def open_browser():
     webbrowser.open_new('http://127.0.0.1:5000/')
 
-#Form.set_resource_url("/static/node_modules")
+Form.set_resource_url("/static/node_modules")
 
 app = Flask(__name__)
 

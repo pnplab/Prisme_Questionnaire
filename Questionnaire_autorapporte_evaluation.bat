@@ -1,5 +1,5 @@
 @echo OFF
-rem How to run a Python scripts in a given conda environment from a batch file.
+rem Run Python scripts in a given conda environment from a batch file.
 
 call C:\ProgramData\Miniconda3\Scripts\activate.bat C:\Users\PnPLab\.conda\envs\prisme
 
@@ -11,7 +11,7 @@ rem Deactivate the environment
 call conda deactivate
 
 rem If conda is directly available from the command line then the following code works.
-rem call activate someenv
+rem call conda activate someenv
 rem python script.py
 rem conda deactivate
 
