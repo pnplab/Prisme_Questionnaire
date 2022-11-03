@@ -282,7 +282,8 @@ class Page11(Form):
 
 class Page12(Form):
     intro = HtmlBlock (title="Année Études",
-                        html = '''<img src='/static/Annees_etudes_quebec.png' alt='Annees_etudes_quebec' width='100%' height='100%'/>''')
+                        html = '''<img src='/static/Etudes_quebec_age.png' alt='Ages_quebec' width='100%' height='100%'/>
+                        <img src='/static/Etudes_quebec_annees.png' alt='Annees_quebec' width='100%' height='100%'/>''')
     WHOQOL_apropo1 = TextQuestion(title="Quel est votre niveau d'éducation ? (Nombre d'années totales d'études)",
                                 input_type="number",
                                 required = False)
@@ -310,25 +311,29 @@ class Profile(Form):
     page_11 = FormPage(Page11, title="")
     page_12 = FormPage(Page12, title="")
 
+import webbrowser
 def open_browser():
-    webbrowser.open_new('http://127.0.0.1:5000/')
+    # Windows
+    chrome_path = '"C:\Program Files\Google\Chrome\Application\chrome.exe" %s'
+    browser = webbrowser.get(chrome_path)
+    browser.args.append('--start-fullscreen')
+    browser.open_new('http://127.0.0.1:5000/')
+    #webbrowser.get(chrome_path).open_new('http://127.0.0.1:5000/')
 
-#Form.set_resource_url("/static/node_modules")
 
 app = Flask(__name__)
-
 
 @app.route("/", methods=("GET",))
 def form():
     form = Profile(title="Prisme", theme="modern",
-                   platform="jquery", navigate_to_url="/merci",locale="fr",
-                   resource_url="/static/node_modules")
+                   platform="jquery", navigate_to_url="/merci",locale="fr")
+                   #resource_url="/static/node_modules")
     return form.render_html()
 
-import time
-
-t = time.localtime()
-current_time = time.strftime("%Hh%Mm%Ss", t)
+from datetime import datetime
+date_time = datetime.now()
+current_time = date_time.strftime("%Hh%Mm%Ss")
+current_date = date_time.strftime("%b-%d-%Y")
 
 @app.route("/", methods=("POST",))
 def post():
@@ -339,6 +344,9 @@ def post():
     project_name = form_data.get('projet')
     subject_name = form_data.get('participant')
     date = form_data.get('date')
+    if date == None:
+        date = current_date
+        
     save_f_name = f'{project_name}_{subject_name}_{current_f_name}_{date}_{current_time}'
     print(save_f_name)
     print(os.getcwd())
