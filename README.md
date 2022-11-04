@@ -29,3 +29,9 @@ Questionnaires made for the Prisme project.
     - `restic -r sftp:elm:/data/orban/data/prisme_questions/restic-repo init`
     - `restic -r sftp:elm:/data/orban/data/prisme_questions/restic-repo --verbose backup ~/result`
 
+Paractical info to create conda shortcut for teminal:
+- create empty shrotcut file `cmd anaconda`
+- get to file proprty the go to sortcut Tab, and put the following in Target:
+  - `%windir%\System32\cmd.exe "/K"  C:\ProgramData\Miniconda3\Scripts\activate.bat C:\Users\PnPLab\.conda\envs\prisme`
+- Put this in Start In
+  - `C:\Users\PnPLab\Desktop\Prisme\Prisme_Questionnaire`
