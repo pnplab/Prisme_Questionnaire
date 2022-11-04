@@ -318,7 +318,6 @@ def open_browser():
     browser = webbrowser.get(chrome_path)
     browser.args.append('--start-fullscreen')
     browser.open_new('http://127.0.0.1:5000/')
-    #webbrowser.get(chrome_path).open_new('http://127.0.0.1:5000/')
 
 
 app = Flask(__name__)
@@ -327,7 +326,7 @@ app = Flask(__name__)
 def form():
     form = Profile(title="Prisme", theme="modern",
                    platform="jquery", navigate_to_url="/merci",locale="fr")
-                   #resource_url="/static/node_modules")
+                   #resource_url="/static/node_modules") ##uncomment if you administer the form offline
     return form.render_html()
 
 from datetime import datetime
@@ -347,13 +346,23 @@ def post():
     if date == None:
         date = current_date
         
-    save_f_name = f'{project_name}_{subject_name}_{current_f_name}_{date}_{current_time}'
+    save_f_name = f'{project_name.replace(" ", "_")}_{subject_name}_{current_f_name.replace(" ", "_")}_{date}_{current_time}'
     print(save_f_name)
     print(os.getcwd())
     df = pd.DataFrame.from_dict(form_data, orient="index")
-    if not os.path.exists('result/'):
-       os.makedirs('result/')
-    df.to_csv(f'result/{save_f_name}.csv')
+    
+    # save data locally
+    base_path = os.path.expanduser('~')
+    local_path = os.path.join(base_path,'result')
+    if not os.path.exists(local_path):
+       os.makedirs(local_path)
+    file_name = os.path.join(local_path, f'{save_f_name}.csv')
+    df.to_csv(file_name)
+    
+    # Send to remote server
+    os.chdir(local_path)
+    backup_command = f'scp -r {save_f_name}.csv elm:/data/orban/data/prisme_questions/result/.'
+    os.system(backup_command)
     return redirect("/merci")
 
 @app.route("/merci")
