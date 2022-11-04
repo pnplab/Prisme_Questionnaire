@@ -1,12 +1,11 @@
 @echo OFF
-rem How to run a Python scripts in a given conda environment from a batch file.
-
+rem Activate conda environment for prisme projet.
 call C:\ProgramData\Miniconda3\Scripts\activate.bat C:\Users\PnPLab\.conda\envs\prisme
 
-rem Run a result sync to elm remote server in that environment
+rem Run a backup of result flder to elm remote server
 CD \Users\PnPLab\result
 scp -r *.csv elm:/data/orban/data/prisme_questions/result/.
-rem Run a backup also on elm
+rem Run an encripted backup also on elm, the password is 'prisme'.
 CD \Users\PnPLab
 restic -r sftp:elm:/data/orban/data/prisme_questions/restic-repo --verbose backup result
 

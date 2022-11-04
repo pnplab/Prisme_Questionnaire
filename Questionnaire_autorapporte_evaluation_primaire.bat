@@ -1,11 +1,10 @@
 @echo OFF
-rem Run Python scripts in a given conda environment from a batch file.
-
+rem Activate conda environment fpr prism project.
 call C:\ProgramData\Miniconda3\Scripts\activate.bat C:\Users\PnPLab\.conda\envs\prisme
 
 rem Run a python script in that environment
 CD C:\Users\PnPLab\Desktop\Prisme\Prisme_Questionnaire
-call python C:\Users\PnPLab\Desktop\Prisme\Prisme_Questionnaire\Questionnaire_autorapporte_evaluation.py
+call python C:\Users\PnPLab\Desktop\Prisme\Prisme_Questionnaire\Questionnaire_autorapporte_evaluation_primaire.py
 
 rem Deactivate the environment
 call conda deactivate

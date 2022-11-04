@@ -1,11 +1,8 @@
-import os
-import pandas as pd
-
+# Flask 
 from flask import Flask
 from flask import redirect
 from flask import request
-
-
+# Questions
 from questions import Form
 from questions import FormPage
 from questions import TextQuestion
@@ -18,8 +15,9 @@ from questions import CommentQuestion
 from questions import DropdownQuestion
 from questions import MatrixDynamicQuestion
 from questions import FormPanel
-
-
+# Other
+import os
+import pandas as pd
 import webbrowser
 from threading import Timer
 
@@ -311,7 +309,7 @@ class Profile(Form):
     page_11 = FormPage(Page11, title="")
     page_12 = FormPage(Page12, title="")
 
-import webbrowser
+# auntomatic web browser popup in full screen
 def open_browser():
     # Windows
     chrome_path = '"C:\Program Files\Google\Chrome\Application\chrome.exe" %s'

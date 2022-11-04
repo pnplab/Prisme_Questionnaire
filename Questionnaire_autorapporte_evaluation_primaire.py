@@ -1,11 +1,8 @@
-import os
-import pandas as pd
-
+# Flask 
 from flask import Flask
 from flask import redirect
 from flask import request
-
-
+# Questions
 from questions import Form
 from questions import FormPage
 from questions import TextQuestion
@@ -18,8 +15,9 @@ from questions import CommentQuestion
 from questions import DropdownQuestion
 from questions import MatrixDynamicQuestion
 from questions import FormPanel
-
-
+# Other
+import os
+import pandas as pd
 import webbrowser
 from threading import Timer
 
@@ -282,7 +280,8 @@ class Page11(Form):
 
 class Page12(Form):
     intro = HtmlBlock (title="Année Études",
-                        html = '''<img src='/static/Annees_etudes_quebec.png' alt='Annees_etudes_quebec' width='100%' height='100%'/>''')
+                        html = '''<img src='/static/Etudes_quebec_age.png' alt='Ages_quebec' width='100%' height='100%'/>
+                        <img src='/static/Etudes_quebec_annees.png' alt='Annees_quebec' width='100%' height='100%'/>''')
     WHOQOL_apropo1 = TextQuestion(title="Quel est votre niveau d'éducation ? (Nombre d'années totales d'études)",
                                 input_type="number",
                                 required = False)
@@ -921,25 +920,28 @@ class Profile(Form):
     
 
 
+# auntomatic web browser popup in full screen
 def open_browser():
-    webbrowser.open_new('http://127.0.0.1:5000/')
+    # Windows
+    chrome_path = '"C:\Program Files\Google\Chrome\Application\chrome.exe" %s'
+    browser = webbrowser.get(chrome_path)
+    browser.args.append('--start-fullscreen')
+    browser.open_new('http://127.0.0.1:5000/')
 
-Form.set_resource_url("/static/node_modules")
 
 app = Flask(__name__)
-
 
 @app.route("/", methods=("GET",))
 def form():
     form = Profile(title="Prisme", theme="modern",
-                   platform="jquery", navigate_to_url="/merci",locale="fr",
-                   resource_url="/static/node_modules")
+                   platform="jquery", navigate_to_url="/merci",locale="fr")
+                   #resource_url="/static/node_modules") ##uncomment if you administer the form offline
     return form.render_html()
 
-import time
-
-t = time.localtime()
-current_time = time.strftime("%Hh%Mm%Ss", t)
+from datetime import datetime
+date_time = datetime.now()
+current_time = date_time.strftime("%Hh%Mm%Ss")
+current_date = date_time.strftime("%b-%d-%Y")
 
 @app.route("/", methods=("POST",))
 def post():
@@ -950,13 +952,26 @@ def post():
     project_name = form_data.get('projet')
     subject_name = form_data.get('participant')
     date = form_data.get('date')
-    save_f_name = f'{project_name}_{subject_name}_{current_f_name}_{date}_{current_time}'
+    if date == None:
+        date = current_date
+        
+    save_f_name = f'{project_name.replace(" ", "_")}_{subject_name}_{current_f_name.replace(" ", "_")}_{date}_{current_time}'
     print(save_f_name)
     print(os.getcwd())
     df = pd.DataFrame.from_dict(form_data, orient="index")
-    if not os.path.exists('result/'):
-       os.makedirs('result/')
-    df.to_csv(f'result/{save_f_name}.csv')
+    
+    # save data locally
+    base_path = os.path.expanduser('~')
+    local_path = os.path.join(base_path,'result')
+    if not os.path.exists(local_path):
+       os.makedirs(local_path)
+    file_name = os.path.join(local_path, f'{save_f_name}.csv')
+    df.to_csv(file_name)
+    
+    # Send to remote server
+    os.chdir(local_path)
+    backup_command = f'scp -r {save_f_name}.csv elm:/data/orban/data/prisme_questions/result/.'
+    os.system(backup_command)
     return redirect("/merci")
 
 @app.route("/merci")

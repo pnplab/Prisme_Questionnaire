@@ -14,7 +14,7 @@ Questionnaires made for the Prisme project.
   cd node_modules
   download_surveyjs ./ jquery modern
   ```
-- create a result folder in the root of you project
+- create a result folder in the root folder of the user
 `mkdir result`
 
 - Make restic works on windows. It's a data sync command for MS like rsync (doc: https://restic.readthedocs.io)

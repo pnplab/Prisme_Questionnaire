@@ -1,11 +1,13 @@
 @echo OFF
-rem How to run a Python scripts in a given conda environment from a batch file.
-
+rem Activate conda environment for prisme project.
 call C:\ProgramData\Miniconda3\Scripts\activate.bat C:\Users\PnPLab\.conda\envs\prisme
 
-rem Run a python script in that environment
+rem Run git update then push
 CD C:\Users\PnPLab\Desktop\Prisme\Prisme_Questionnaire
 call git status
+call git add *
+call git commit -am "auo-update from prisme laptop"
+call git push
 
 rem Deactivate the environment
 call conda deactivate
