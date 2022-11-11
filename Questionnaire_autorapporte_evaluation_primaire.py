@@ -29,10 +29,10 @@ class Page1(Form):
     projet = TextQuestion(title="Projet:")
     participant = TextQuestion(title="Numero du participant:",
                                input_type="number", 
-                               required="False")
+                               required="True")
     date = TextQuestion(title="Date",
                         input_type="date",
-                        required="False" )
+                        required="True" )
 #############################################################################################################################
 ########################## WHODAS 2.0 - 36 items - auto-rapporté ############################################################
 class Page2(Form):
@@ -83,7 +83,7 @@ class Page3(Form):
                     "text": " Débuter et maintenir une conversation ?"
                 }
             ],
-                                    all_rows_required = False)
+                                    all_rows_required = True)
     
 
 class Page4(Form):
@@ -124,7 +124,7 @@ class Page4(Form):
                     "text": " Marcher une longue distance (ex. un kilomètre ou l'équivalent) ?"
                 }
             ],
-                                    all_rows_required = False)
+                                    all_rows_required = True)
 
 class Page5(Form):
     D3 = MatrixQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de…",
@@ -161,7 +161,7 @@ class Page5(Form):
                     "text": "Rester seul pendant quelques jours ?"
                 }
             ],
-                                    all_rows_required = False)
+                                    all_rows_required = True)
 
 
 class Page6(Form):
@@ -202,24 +202,24 @@ class Page6(Form):
                     "text": " À quel point avez-vous eu des difficultés dans vos activités sexuelles ?"
                 }
             ],
-                                    all_rows_required = False)
+                                    all_rows_required = True)
 
 class Page7(Form):
         D5_1 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de s'occuper de vos responsabilités ménagères (tâches ménagères, familles)",
                                   choices=["1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
-                                  required = False)
+                                  required = True)
         
         D5_2 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de bien faire vos tâches ménagères les plus importantes ?",
                                   choices=["1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
-                                  required = False)
+                                  required = True)
         
         D5_3 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de faire toutes les activités ménagères que vous aviez besoin de faire ?",
                                   choices=["1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
-                                  required = False)
+                                  required = True)
         
         D5_4 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de faire vos activités ménagères aussi rapidement que nécessaire ?",
                                   choices=["1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
-                                  required = False)
+                                  required = True)
         
         D5_01 = TextQuestion(title="Dans les 7 derniers jours, combien de jours cela vous est-il arrivé de réduire ou de ne pas faire du tout de tâches ménagères à cause de votre condition de santé ?",
                              required="False",
@@ -229,26 +229,26 @@ class Page7(Form):
 class Page8(Form):
         D5_5 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de faire votre journée de travail/d'école",
                                   choices=["1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
-                                  required = False)
+                                  required = True)
         
         D5_6 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de bien faire vos tâches reliées au travail/à l'école ?",
                                   choices=["1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
-                                  required = False)
+                                  required = True)
         
         D5_7 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de faire tout le travail que vous aviez besoin de faire ?",
                                   choices=["1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
-                                  required = False)
+                                  required = True)
         
         D5_8 = RadioGroupQuestion(title="Dans la dernière semaine, à quel point avez-vous trouvé difficile de faire le travail aussi rapidement que nécessaire ?",
                                   choices=["1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
-                                  required = False)   
+                                  required = True)   
 
 
         D5_9 = BooleanQuestion(title="Avez-vous besoin de travailler à un niveau moins élevé à d'un problème de santé ?",
-                               required = False)
+                               required = True)
         
         D5_10 = BooleanQuestion(title="Gagnez-vous moins d'un problème de santé ?",
-                               required = False)
+                               required = True)
         
         D5_02 = TextQuestion(title="Dans les 7 derniers jours, combien de jours cela vous est-il arrivé de réduire ou de ne pas faire du tout de tâches ménagères à cause de votre condition de santé ?",
                              required="False",
@@ -259,24 +259,24 @@ class Page9(Form):
         D6_1_4 = MatrixQuestion(title="Dans la dernière semaine, …",
                                     columns=[ "1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
                                     rows=[ "D6_1| À quel point est-ce problématique pour vous de vous joindre à des activités communautaires (ex. festivités, activités religieuses, etc.), de la même manière que les autres le peuvent ?","D6_2|À quel point avez-vous eu des problèmes à cause de barrières ou d'obstacles autour de vous ? ","D6_3|À quel point cela était problématique pour vous de vivre avec dignité à cause des attitudes et des actions des autres ?","D6_4|Combien de temps avez-vous passé sur votre condition de santé ou à gérer les conséquences engendrées par votre condition de santé ?"],
-                                    all_rows_required = False)
+                                    all_rows_required = True)
 
 class Page10(Form):
         D6_5_8 = MatrixQuestion(title="Dans la dernière semaine, …",
                                     columns=[ "1|Aucunement difficile", "2|Légèrement difficile","3|Modérément difficile","4|Sévèrement difficile","5|Extrêmement difficile ou je ne pouvais pas le faire"],
                                     rows=[ "D6_5|À quel point avez-vous été émotionnellement affecté par vos conditions de santé ?","D6_6|À quel point votre santé a affecté vos ressources financières ou celles de votre famille ?","D6_7|À quel point vos problèmes de santé ont été problématiques pour votre famille ?","D6_8| À quel point cela a-t-il été problématique de faire des choses par vous-même pour vous relaxer ou pour le plaisir ?"],
-                                    all_rows_required = False)
+                                    all_rows_required = True)
 
 class Page11(Form):
     H1 = TextQuestion(title="De manière générale, dans les 7 derniers jours, combien y a-t-il eu de jours où ces difficultés étaient présentes ?",
                       input_type="number",
-                      required = False)
+                      required = True)
     H2 = TextQuestion(title="Dans les 7 derniers jours, combien y a-t-il eu de jours où vous étiez totalement incapable de faire vos activités habituelles ou votre travail à cause d'une condition de santé ?",
                       input_type="number",
-                      required = False)
+                      required = True)
     H3 = TextQuestion(title="Dans les 7 derniers jours, sans compter les jours où vous en étiez totalement incapable, combien y a-t-il eu de jours où vous avez dû couper ou réduire vos activités habituelles ou votre travail à cause d'une condition de santé ?",
                       input_type="number",
-                      required = False)
+                      required = True)
 
 class Page12(Form):
     intro = HtmlBlock (title="Année Études",
@@ -284,15 +284,15 @@ class Page12(Form):
                         <img src='/static/Etudes_quebec_annees.png' alt='Annees_quebec' width='100%' height='100%'/>''')
     WHOQOL_apropo1 = TextQuestion(title="Quel est votre niveau d'éducation ? (Nombre d'années totales d'études)",
                                 input_type="number",
-                                required = False)
+                                required = True)
     
     WHOQOL_apropo2 = DropdownQuestion(title="Quel est votre état civil?",
                                 choices = ["1|Célibataire", "2|Séparé","3|Marié","4|Divorcé","5|Veuf"],
-                                required = False)
+                                required = True)
     WHOQOL_apropo3 = BooleanQuestion(title="Êtes-vous présentement malade ?",
-                               required = False)
+                               required = True)
     WHOQOL_apropo4 = CommentQuestion(title="S'il y avait quelque chose qui n'allait pas avec votre santé, vous croyez que cela serait quoi ?",
-                               required = False)
+                               required = True)
 
 #####################################################################################################################################################################################
 ############################# 3. WHOQOL-BREF - 26 items - auto-rapporté ##############################################################################################################
@@ -308,11 +308,11 @@ class Page13(Form):
 class Page14(Form):
         WHOQOL_1 = RadioGroupQuestion(title="Comment évalueriez-vous votre qualité de vie ?",
                                   choices=["1|Très pauvre", "2|Pauvre","3|Ni pauvre ni bonne","4|Bonne","5|Très bonne"],
-                                  required = False)
+                                  required = True)
         
         WHOQOL_2 = RadioGroupQuestion(title="À quel point êtes-vous satisfait de votre santé ?",
                                   choices=["1|Très insatisfait", "2|Insatisfait","3|Ni satisfait ni insatisfait","4|Satisfait","5|Très satisfait"],
-                                  required = False)
+                                  required = True)
         
 class Page15(Form): 
     WHOQOL_3_6 = MatrixQuestion(title="Nous vous demandons de répondre en fonction de ce que vous pensiez de votre vie lors de la dernière semaine.",
@@ -349,7 +349,7 @@ class Page15(Form):
                     "text": "À quel  point sentez-vous que votre vie a un sens ?"
                 }
             ],
-                                    all_rows_required = False)
+                                    all_rows_required = True)
     
 
 class Page16(Form): 
@@ -384,7 +384,7 @@ class Page16(Form):
                     "text": "À quel point votre environnement physique est-il sain ?"
                 }
             ],
-                                    all_rows_required = False)
+                                    all_rows_required = True)
     
 class Page17(Form): 
     WHOQOL_10_14 = MatrixQuestion(title="Nous vous demandons de répondre en fonction de ce que vous pensiez de votre vie lors de la dernière semaine.",
@@ -424,10 +424,10 @@ class Page17(Form):
                     "text": "À quel point avez-vous des opportunités pour des activités de loisirs ?"
                 }
             ],
-                                    all_rows_required = False)
+                                    all_rows_required = True)
     WHOQOL_15 = RadioGroupQuestion(title="Comment est votre capacité à vous déplacer ?",
                                   choices=["1|Très pauvre", "2|Pauvre","3|Ni pauvre ni bonne","4|Bonne","5|Très bonne"],
-                                  required = False)
+                                  required = True)
 
 class Page18(Form): 
     WHOQOL_16_19 = MatrixQuestion(title="Nous vous demandons de répondre en fonction de ce que vous pensiez de votre vie lors de la dernière semaine.",
@@ -464,7 +464,7 @@ class Page18(Form):
                     "text": "À quel point êtes-vous satisfait de vous-même ?"
                 }
             ],
-                                    all_rows_required = False)
+                                    all_rows_required = True)
     
 class Page19(Form): 
     WHOQOL_20_23 = MatrixQuestion(title="Nous vous demandons de répondre en fonction de ce que vous pensiez de votre vie lors de la dernière semaine.",
@@ -501,7 +501,7 @@ class Page19(Form):
                     "text": "À quel point êtes-vous satisfait des conditions de votre milieu de vie ?"
                 }
             ],
-                                    all_rows_required = False)
+                                    all_rows_required = True)
     
     
 class Page20(Form): 
@@ -533,11 +533,11 @@ class Page20(Form):
                     "text": "À quel point êtes-vous satisfait de votre moyen de transport ?"
                 }
             ],
-                                    all_rows_required = False)
+                                    all_rows_required = True)
     
     WHOQOL_26 = RadioGroupQuestion(title="À quelle fréquence ressentez-vous des sentiments négatifs, comme une mauvaise humeur, le désespoir, l'anxiété, la dépression ? ",
                                   choices=["1|Jamais", "2|Rarement","3|Assez souvent","4|Très souvent","5|Toujours"],
-                                  required = False)
+                                  required = True)
 ###########################################################################################################################################################################################################
 ############################################### DASS-21 #############################################################################################################################################################    
 class Page21(Form):
@@ -589,7 +589,7 @@ class Page22(Form):
                     "text": "J'ai eu des tremblements (par exemple, des mains)."
                 }
             ],
-                                    all_rows_required = False)    
+                                    all_rows_required = True)    
 
 class Page23(Form): 
     DASS_8_14 = MatrixQuestion(title="Indiquez lequel correspond le mieux à votre expérience au cours de la dernière semaine.",
@@ -632,7 +632,7 @@ class Page23(Form):
                     "text": "J'ai été intolérant(e) à tout ce qui m'empêchait de faire ce que j'avais à faire."
                 }
             ],
-                                    all_rows_required = False)  
+                                    all_rows_required = True)  
     
     
 class Page24(Form): 
@@ -676,7 +676,7 @@ class Page24(Form):
                     "text": "J'ai eu l'impression que la vie n'avait pas de sens."
                 }
             ],
-                                    all_rows_required = False)
+                                    all_rows_required = True)
 ########################################################################################################################################################################################
 ################################### CAPE-15 #############################################################################################################################################    
 class Page25(Form):
@@ -722,7 +722,7 @@ class Page26(Form):
                     "text": " Vous êtes-vous senti comme si des appareils électriques tels que des ordinateurs pouvaient influencer votre façon de penser?"
                 }
             ],
-                                    all_rows_required = False) 
+                                    all_rows_required = True) 
     
 class Page27(Form): 
     CAPE_6_10 = MatrixQuestion(title=" Indiquez à quelle fréquence vous vous êtes senti de cette manière dans la dernière semaine.",
@@ -759,7 +759,7 @@ class Page27(Form):
                     "text": " Avez-vous entendu vos pensées vous revenir en échos ?"
                 }
             ],
-                                    all_rows_required = False)
+                                    all_rows_required = True)
 
 class Page28(Form): 
     CAPE_11_15 = MatrixQuestion(title=" Indiquez à quelle fréquence vous vous êtes senti de cette manière dans la dernière semaine.",
@@ -796,7 +796,7 @@ class Page28(Form):
                     "text": " Avez-vous vu des objets, des personnes ou des animaux que les autres ne peuvent pas voir ?"
                 }
             ],
-                                    all_rows_required = False)   
+                                    all_rows_required = True)   
 ##################################################################################################################################################################
 ######################################## Altman Scale #############################################################################################################    
 
@@ -814,7 +814,7 @@ class Page29(Form):
                                               "2|Je me sens souvent plus heureux ou de meilleure humeur que d'habitude",
                                               "3|Je me sens fréquemment plus heureux ou de meilleure humeur que d'habitude",
                                               "4|Je me sens tout le temps plus heureux ou de meilleure humeur que d'habitude"],
-                                     required = False)
+                                     required = True)
     
     Altman_group2 = DropdownQuestion(title="Groupes d'énoncés 2",
                                      choices=["0|Je ne me sens pas plus confiant que d'habitude.",
@@ -822,7 +822,7 @@ class Page29(Form):
                                               "2|J'ai souvent plus confiance en moi que d'habitude",
                                               "3|Je me sens fréquemment plus confiant que d'habitude",
                                               "4|Je me sens extrêmement confiant tout le temps"],
-                                     required = False)
+                                     required = True)
     
     Altman_group3 = DropdownQuestion(title="Groupes d'énoncés 3",
                                      choices=["0|Je n'ai pas besoin de moins de sommeil que d'habitude",
@@ -830,7 +830,7 @@ class Page29(Form):
                                               "2|J'ai souvent besoin de moins de sommeil que d'habitude",
                                               "3|J'ai fréquemment besoin de moins de sommeil que d'habitude",
                                               "4|Je peux rester éveillé toute la journée et toute la nuit et je ne me sens toujours pas fatigué"],
-                                     required = False)
+                                     required = True)
     
     Altman_group4 = DropdownQuestion(title="Groupes d'énoncés 4",
                                      choices=["0|Je ne parle pas plus que d'habitude",
@@ -838,7 +838,7 @@ class Page29(Form):
                                               "2|Je parle souvent plus que d'habitude",
                                               "3|Je parle fréquemment plus que d'habitude",
                                               "4|Je parle constamment et je ne peux pas être interrompu"],
-                                     required = False)
+                                     required = True)
     
     Altman_group5 = DropdownQuestion(title="Groupes d'énoncés 5",
                                      choices=["0|Je n'ai pas été plus actif (que ce soit socialement, sexuellement, au travail, à la maison ou à l'école) que d'habitude",
@@ -846,7 +846,7 @@ class Page29(Form):
                                               "2|J'ai souvent été plus actif que d'habitude",
                                               "3|J'ai fréquemment été plus actif que d'habitude",
                                               "4|Je suis constamment actif ou tout le temps en déplacement"],
-                                     required = False)
+                                     required = True)
 ################################################################################################################################################################################################
 ######################################### Consommation #########################################################################################################################################
 class AutresConsommation(Form):
