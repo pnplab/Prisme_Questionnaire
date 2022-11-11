@@ -222,7 +222,7 @@ class Page7(Form):
                                   required = True)
         
         D5_01 = TextQuestion(title="Dans les 7 derniers jours, combien de jours cela vous est-il arrivé de réduire ou de ne pas faire du tout de tâches ménagères à cause de votre condition de santé ?",
-                             required="False",
+                             required ="True",
                              input_type="number",
                              visible_if="{D5_2} = '2' or {D5_2} = '3' or {D5_2} = '4' or {D5_2} = '5' or {D5_3} = '2' or {D5_3} = '3' or {D5_3} = '4' or {D5_3} = '5' or {D5_4} = '2' or {D5_4} = '3' or {D5_4} = '4' or {D5_4} = '5'")
         
@@ -251,7 +251,7 @@ class Page8(Form):
                                required = True)
         
         D5_02 = TextQuestion(title="Dans les 7 derniers jours, combien de jours cela vous est-il arrivé de réduire ou de ne pas faire du tout de tâches ménagères à cause de votre condition de santé ?",
-                             required="False",
+                             required="True",
                              input_type="number",
                              visible_if="{D5_5} = '2' or {D5_5} = '3' or {D5_5} = '4' or {D5_5} = '5' or {D5_6} = '2' or {D5_6} = '3' or {D5_6} = '4' or {D5_6} = '5' or {D5_7} = '2' or {D5_7} = '3' or {D5_7} = '4' or {D5_7} = '5' or {D5_8} = '2' or {D5_8} = '3' or {D5_8} = '4' or {D5_8} = '5' ")
         
@@ -850,7 +850,7 @@ class Page29(Form):
 ################################################################################################################################################################################################
 ######################################### Consommation #########################################################################################################################################
 class AutresConsommation(Form):
-    autres_conso = TextQuestion(title='Rajoutez des lignes au besoin', is_required=False)
+    autres_conso = TextQuestion(title='Rajoutez des lignes au besoin', is_required=True)
     
 class Page30(Form):
     intro = HtmlBlock (title="Consomation",
@@ -859,12 +859,12 @@ class Page30(Form):
 </font></div> ''')
     date_debut_consomation = TextQuestion(title="Date du début de la période de 7 jours : ",
                              input_type="date",
-                             required="False")
+                             required="True")
     conso_1 = BooleanQuestion(title="Lors des 7 derniers jours, avez-vous consommé de l'alcool ou des drogues ?")
     conso_2 = TextQuestion(title="Combien de fois avez-vous consommé de l'alcool ?",
                                                  input_type="number",
                                                  visible_if="{conso_1} = True",
-                                                 required="False")
+                                                 required="True")
     conso_3_12 = MatrixQuestion(title="Lors des 7 derniers jours, avez-vous consommé …",
                                     columns=[ "0|Non", "1|Oui"],
                                     rows=[ "conso_3| Cannabinoïdes / Marijuana ",
