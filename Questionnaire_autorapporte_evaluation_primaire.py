@@ -850,7 +850,7 @@ class Page29(Form):
 ################################################################################################################################################################################################
 ######################################### Consommation #########################################################################################################################################
 class AutresConsommation(Form):
-    autres_conso = TextQuestion(title='Rajoutez des lignes au besoin', is_required=True)
+    autres_conso = TextQuestion(title='Rajoutez des lignes au besoin', required=True)
     
 class Page30(Form):
     intro = HtmlBlock (title="Consomation",
@@ -860,7 +860,8 @@ class Page30(Form):
     date_debut_consomation = TextQuestion(title="Date du début de la période de 7 jours : ",
                              input_type="date",
                              required="True")
-    conso_1 = BooleanQuestion(title="Lors des 7 derniers jours, avez-vous consommé de l'alcool ou des drogues ?")
+    conso_1 = BooleanQuestion(title="Lors des 7 derniers jours, avez-vous consommé de l'alcool ou des drogues ?",
+              required="True")
     conso_2 = TextQuestion(title="Combien de fois avez-vous consommé de l'alcool ?",
                                                  input_type="number",
                                                  visible_if="{conso_1} = True",
@@ -877,9 +878,11 @@ class Page30(Form):
                                           "conso_10| Sédatifs et hypnotiques, à l'exclusion des benzodiazépines",
                                           "conso_11| Benzodiazépines",
                                           "conso_12| Inhalants"],
-                                    has_other = True)
-    conso_13_bool = BooleanQuestion(title="Lors des 7 derniers jours, avez-vous consommé d'autres drogues que celles montionnées si haut?")
+                                    has_other = True,
+                                    all_rows_required = True)
+    conso_13_bool = BooleanQuestion(title="Lors des 7 derniers jours, avez-vous consommé d'autres drogues que celles montionnées si haut?", required= True)
     conso_13 = FormPanel(AutresConsommation,
+                         all_rows_required = True,
                          name="conso_13",
                          title=" Specifiez en ecrivant le nom de la drogue.",
                          visible_if="{conso_13_bool} = True",
